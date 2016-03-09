@@ -1,0 +1,346 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		42088F8E1C8D81A4002D6DFD /* EUExBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 42088F8D1C8D81A4002D6DFD /* EUExBackground.m */; };
+		42088F921C8D8330002D6DFD /* uexBackgroundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 42088F911C8D8330002D6DFD /* uexBackgroundManager.m */; };
+		42088F991C8D8455002D6DFD /* uexBackgroundFakeEBrowserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42088F981C8D8455002D6DFD /* uexBackgroundFakeEBrowserView.m */; };
+		42088F9C1C8E6649002D6DFD /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42088F9B1C8E6649002D6DFD /* ReactiveCocoa.framework */; };
+		42088FA11C8E6A82002D6DFD /* uexBackgroundTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 42088FA01C8E6A82002D6DFD /* uexBackgroundTimer.m */; };
+		421A4B071C90242F00DC17D2 /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42088F9B1C8E6649002D6DFD /* ReactiveCocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		424AD04B1C25285300EEC1F8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				421A4B071C90242F00DC17D2 /* ReactiveCocoa.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08935C42A39549E994BAC2AE /* EUExBaseDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBaseDefine.h; sourceTree = "<group>"; };
+		26A50868C4432E44C3EAD3D7 /* MD5Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Digest.h; sourceTree = "<group>"; };
+		42088F8C1C8D81A4002D6DFD /* EUExBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBackground.h; sourceTree = "<group>"; };
+		42088F8D1C8D81A4002D6DFD /* EUExBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EUExBackground.m; sourceTree = "<group>"; };
+		42088F8F1C8D8262002D6DFD /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		42088F901C8D8330002D6DFD /* uexBackgroundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexBackgroundManager.h; sourceTree = "<group>"; };
+		42088F911C8D8330002D6DFD /* uexBackgroundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexBackgroundManager.m; sourceTree = "<group>"; };
+		42088F931C8D83DB002D6DFD /* ACEJSCHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEJSCHandler.h; sourceTree = "<group>"; };
+		42088F971C8D8455002D6DFD /* uexBackgroundFakeEBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexBackgroundFakeEBrowserView.h; sourceTree = "<group>"; };
+		42088F981C8D8455002D6DFD /* uexBackgroundFakeEBrowserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexBackgroundFakeEBrowserView.m; sourceTree = "<group>"; };
+		42088F9A1C8D84CF002D6DFD /* EBrowserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EBrowserView.h; sourceTree = "<group>"; };
+		42088F9B1C8E6649002D6DFD /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveCocoa.framework; sourceTree = "<group>"; };
+		42088F9F1C8E6A82002D6DFD /* uexBackgroundTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexBackgroundTimer.h; sourceTree = "<group>"; };
+		42088FA01C8E6A82002D6DFD /* uexBackgroundTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexBackgroundTimer.m; sourceTree = "<group>"; };
+		424AD04D1C25285300EEC1F8 /* libuexBackground.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexBackground.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		45774702446D99EB888A66B1 /* EUExBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBase.h; sourceTree = "<group>"; };
+		4D443A8CD8EA694B6BABAB57 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		6D38A91822332CC1630B0897 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		7C804C1A38DA672191643192 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		7E09DCEA6FFCCC1DC3608455 /* EUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUtility.h; sourceTree = "<group>"; };
+		891F5A39319E3085DDCB62DA /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		A3C2555488C28F9A16C69504 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		AD4CF24C50F6869089B23B74 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		AE10CDE2CDBC467030D158E2 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
+		F1D6E951C29FD64B76471CE3 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		F68E36DFBA7E004FB3306E04 /* EUExBase+Bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EUExBase+Bundle.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		424AD04A1C25285300EEC1F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42088F9C1C8E6649002D6DFD /* ReactiveCocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		13E3A0FB72A03F4AD14B7169 /* EUExBackground */ = {
+			isa = PBXGroup;
+			children = (
+				2FC4C2549EB60B97FC2C144A /* engineHeader */,
+				D9AB0573CB5A43058EC70AB3 /* sourceCode */,
+				42088F8C1C8D81A4002D6DFD /* EUExBackground.h */,
+				42088F8D1C8D81A4002D6DFD /* EUExBackground.m */,
+				42088F8F1C8D8262002D6DFD /* PrefixHeader.pch */,
+			);
+			path = EUExBackground;
+			sourceTree = "<group>";
+		};
+		2FC4C2549EB60B97FC2C144A /* engineHeader */ = {
+			isa = PBXGroup;
+			children = (
+				42088F9A1C8D84CF002D6DFD /* EBrowserView.h */,
+				7E09DCEA6FFCCC1DC3608455 /* EUtility.h */,
+				F68E36DFBA7E004FB3306E04 /* EUExBase+Bundle.h */,
+				45774702446D99EB888A66B1 /* EUExBase.h */,
+				08935C42A39549E994BAC2AE /* EUExBaseDefine.h */,
+				42088F931C8D83DB002D6DFD /* ACEJSCHandler.h */,
+			);
+			path = engineHeader;
+			sourceTree = "<group>";
+		};
+		424AD0441C25285300EEC1F8 = {
+			isa = PBXGroup;
+			children = (
+				13E3A0FB72A03F4AD14B7169 /* EUExBackground */,
+				424AD04E1C25285300EEC1F8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		424AD04E1C25285300EEC1F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				424AD04D1C25285300EEC1F8 /* libuexBackground.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C50158576E4BC45639087BA6 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				F1D6E951C29FD64B76471CE3 /* JSON.h */,
+				AE10CDE2CDBC467030D158E2 /* JSONParser.h */,
+				26A50868C4432E44C3EAD3D7 /* MD5Digest.h */,
+				4D443A8CD8EA694B6BABAB57 /* NSObject+SBJSON.h */,
+				891F5A39319E3085DDCB62DA /* NSString+SBJSON.h */,
+				AD4CF24C50F6869089B23B74 /* SBJSON.h */,
+				6D38A91822332CC1630B0897 /* SBJsonBase.h */,
+				A3C2555488C28F9A16C69504 /* SBJsonParser.h */,
+				7C804C1A38DA672191643192 /* SBJsonWriter.h */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		D9AB0573CB5A43058EC70AB3 /* sourceCode */ = {
+			isa = PBXGroup;
+			children = (
+				42088F9B1C8E6649002D6DFD /* ReactiveCocoa.framework */,
+				C50158576E4BC45639087BA6 /* JSON */,
+				42088F901C8D8330002D6DFD /* uexBackgroundManager.h */,
+				42088F911C8D8330002D6DFD /* uexBackgroundManager.m */,
+				42088F971C8D8455002D6DFD /* uexBackgroundFakeEBrowserView.h */,
+				42088F981C8D8455002D6DFD /* uexBackgroundFakeEBrowserView.m */,
+				42088F9F1C8E6A82002D6DFD /* uexBackgroundTimer.h */,
+				42088FA01C8E6A82002D6DFD /* uexBackgroundTimer.m */,
+			);
+			path = sourceCode;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		424AD04C1C25285300EEC1F8 /* EUExBackground */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 424AD0561C25285300EEC1F8 /* Build configuration list for PBXNativeTarget "EUExBackground" */;
+			buildPhases = (
+				424AD0491C25285300EEC1F8 /* Sources */,
+				424AD04A1C25285300EEC1F8 /* Frameworks */,
+				424AD04B1C25285300EEC1F8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EUExBackground;
+			productName = EUExBackground;
+			productReference = 424AD04D1C25285300EEC1F8 /* libuexBackground.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		424AD0451C25285300EEC1F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = AppCan;
+				TargetAttributes = {
+					424AD04C1C25285300EEC1F8 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 424AD0481C25285300EEC1F8 /* Build configuration list for PBXProject "EUExBackground" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 424AD0441C25285300EEC1F8;
+			productRefGroup = 424AD04E1C25285300EEC1F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				424AD04C1C25285300EEC1F8 /* EUExBackground */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		424AD0491C25285300EEC1F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42088F921C8D8330002D6DFD /* uexBackgroundManager.m in Sources */,
+				42088F991C8D8455002D6DFD /* uexBackgroundFakeEBrowserView.m in Sources */,
+				42088FA11C8E6A82002D6DFD /* uexBackgroundTimer.m in Sources */,
+				42088F8E1C8D81A4002D6DFD /* EUExBackground.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		424AD0541C25285300EEC1F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		424AD0551C25285300EEC1F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		424AD0571C25285300EEC1F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/uexBackground";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EUExBackground/sourceCode",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = $SRCROOT/EUExBackground/PrefixHeader.pch;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = uexBackground;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		424AD0581C25285300EEC1F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/uexBackground";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EUExBackground/sourceCode",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = $SRCROOT/EUExBackground/PrefixHeader.pch;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = uexBackground;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		424AD0481C25285300EEC1F8 /* Build configuration list for PBXProject "EUExBackground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				424AD0541C25285300EEC1F8 /* Debug */,
+				424AD0551C25285300EEC1F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		424AD0561C25285300EEC1F8 /* Build configuration list for PBXNativeTarget "EUExBackground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				424AD0571C25285300EEC1F8 /* Debug */,
+				424AD0581C25285300EEC1F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 424AD0451C25285300EEC1F8 /* Project object */;
+}

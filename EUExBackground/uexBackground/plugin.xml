@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<uexplugins>
+    <plugin name="uexBackground">
+         <method name="start" sync="true"></method>
+         <method name="stop" sync="true"></method>
+         <method name="addTimer" sync="true"></method>
+         <method name="cancelTimer"></method>
+    </plugin>
+</uexplugins>
