@@ -58,6 +58,8 @@
 }
 
 
-
+- (void)dealloc{
+    //NSLog(@"timer %@ dealloc",_identifier);
+}
 
 @end

@@ -87,7 +87,7 @@
         return kUexBackgroundResultFalse;
     }
     NSError *error = nil;
-    NSString *js = [NSString stringWithContentsOfFile:[self absPath:@"res://background.js"] encoding:NSUTF8StringEncoding error:&error];
+    NSString *js = [NSString stringWithContentsOfFile:[self absPath:info[@"jsPath"]] encoding:NSUTF8StringEncoding error:&error];
     if (error) {
         return kUexBackgroundResultFalse;
     }

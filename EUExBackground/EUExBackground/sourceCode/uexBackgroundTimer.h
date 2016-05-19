@@ -29,7 +29,7 @@
 @property (nonatomic,assign)NSInteger repeatTimes;
 @property (nonatomic,assign)NSTimeInterval timeInterval;
 
-@property (nonatomic,weak)RACDisposable *disposable;
+@property (nonatomic,strong)RACDisposable *disposable;
 
 
 - (instancetype)initWithIdentifier:(NSString *)identifier

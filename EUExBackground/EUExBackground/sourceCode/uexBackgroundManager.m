@@ -209,9 +209,9 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
     [self lock];
     [self.timers addObject:timer];
     [self unlock];
-    @weakify(self);
+    @weakify(self,timer);
     RACSignal *timerSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        @strongify(self);
+        @strongify(self,timer);
         __block NSInteger count = 1;
         [timer.timerSignal subscribeNext:^(id x) {
             [subscriber sendNext:@(count)];
@@ -222,14 +222,20 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
         [self.resetSignal subscribeNext:^(id x) {
             [subscriber sendCompleted];
         }];
+        @weakify(self,timer);
         return [RACDisposable disposableWithBlock:^{
+            @strongify(self,timer);
             [self.timers removeObject:timer];
         }];
     }];
+    
     timer.disposable = [timerSignal subscribeNext:^(NSNumber *count) {
+        @strongify(self,timer);
         NSString *jsStr = [NSString stringWithFormat:@"if(%@.%@){%@.%@(%@);}",kUexBackgroundCallbackPluginName,timer.callbackName,kUexBackgroundCallbackPluginName,timer.callbackName,count];
         [self evaluateJavaScript:jsStr];
     }];
+    
+    
     return YES;
     
 }
