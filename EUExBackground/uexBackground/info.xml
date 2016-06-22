@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <uexplugins>
     <plugin
-        uexName="uexBackground" version="3.3.1" build="1">
-        <info>1:修复一处循环引用的错误</info>
+        uexName="uexBackground" version="4.0.0" build="2">
+        <info>2:支持4.0引擎</info>
+        <build>1:修复一处循环引用的错误</build>
         <build>0:uexBackground for iOS</build>
     </plugin>
 </uexplugins>

@@ -1,10 +1,10 @@
 /**
  *
- *	@file   	: EUExBackground.h  in EUExBackground Project .
+ *	@file   	: AppCanGlobalObjectGetter.h  in AppCanKit
  *
- *	@author 	: CeriNo.
+ *	@author 	: CeriNo 
  * 
- *	@date   	: Created on 16/3/7.
+ *	@date   	: Created on 16/5/31.
  *
  *	@copyright 	: 2016 The AppCan Open Source Project.
  *
@@ -20,9 +20,12 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
+ 
 #import <Foundation/Foundation.h>
 
-@interface EUExBackground : EUExBase
+@protocol AppCanGlobalObjectGetter <NSObject>
+
+- (id<AppCanWebViewEngineObject>)getAppCanRootWebViewEngine;
+- (id<AppCanWidgetObject>)getAppCanMainWidget;
 
 @end

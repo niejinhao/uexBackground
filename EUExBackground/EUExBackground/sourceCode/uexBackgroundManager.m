@@ -25,7 +25,7 @@
 #import "ACEJSCHandler.h"
 #import "uexBackgroundFakeEBrowserView.h"
 #import "uexBackgroundTimer.h"
-#import <libkern/OSAtomic.h>
+
 
 
 
@@ -39,6 +39,8 @@
 @property (nonatomic,strong)RACDisposable *taskDisposable;
 
 @property (nonatomic,assign)BOOL shouldEndBackgroundTask;
+
+@property (nonatomic,strong)dispatch_queue_t jsQueue;
 
 
 @end
@@ -65,6 +67,7 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
         _timers = [NSMutableArray array];
         _arrayLock = dispatch_semaphore_create(1);
         _jsResources = [NSMutableArray array];
+        _jsQueue = dispatch_queue_create("com.appcan.uexBackground.jsRuntime", DISPATCH_QUEUE_SERIAL);
 
         
         
@@ -175,7 +178,7 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
 }
 
 - (void)evaluateJavaScript:(NSString *)jsStr{
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    dispatch_async(self.jsQueue, ^{
         [self.context evaluateScript:jsStr];
     });
 

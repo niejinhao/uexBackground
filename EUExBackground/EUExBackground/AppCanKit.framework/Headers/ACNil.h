@@ -1,10 +1,10 @@
 /**
  *
- *	@file   	: EUExBackground.h  in EUExBackground Project .
+ *	@file   	: ACNil.h  in AppCanKit
  *
- *	@author 	: CeriNo.
- * 
- *	@date   	: Created on 16/3/7.
+ *	@author 	: CeriNo
+ *
+ *	@date   	: Created on 16/5/25.
  *
  *	@copyright 	: 2016 The AppCan Open Source Project.
  *
@@ -23,6 +23,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EUExBackground : EUExBase
+/**
+ *  NSNull的替代品
+ *  不会导致unrecogized selector崩溃
+ */
+@interface ACNil : NSProxy
+
+
++ (instancetype)null;
 
 @end

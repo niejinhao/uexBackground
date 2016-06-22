@@ -26,8 +26,8 @@
 #import "uexBackgroundManager.h"
 
 
-#define kUexBackgroundResultFalse @(NO)
-#define kUexBackgroundResultTrue @(YES)
+#define UEX_FALSE @(NO)
+#define UEX_TRUE @(YES)
 
 @interface EUExBackground()
 @property (nonatomic,weak)uexBackgroundManager *manager;
@@ -41,17 +41,14 @@
 
 #pragma mark - Life Cycle
 
-- (instancetype)initWithBrwView:(EBrowserView *)eInBrwView{
-    self=[super initWithBrwView:eInBrwView];
-    if(self){
+
+- (instancetype)initWithWebViewEngine:(id<AppCanWebViewEngineObject>)engine{
+    self = [super initWithWebViewEngine:engine];
+    if (self) {
         _manager = [uexBackgroundManager sharedManager];
-        
-        
     }
     return self;
-    
 }
-
 
 
 - (void)clean{
@@ -76,107 +73,86 @@
 
 
 - (NSNumber *)start:(NSMutableArray *)inArguments{
-    if([inArguments count] < 1){
-        return kUexBackgroundResultFalse;
-    }
-    id info = [inArguments[0] JSONValue];
-    if(!info || ![info isKindOfClass:[NSDictionary class]]){
-        return kUexBackgroundResultFalse;
-    }
-    if (!info[@"jsPath"] || ![info[@"jsPath"] isKindOfClass:[NSString class]]) {
-        return kUexBackgroundResultFalse;
+
+    ACArgsUnpack(NSDictionary *info) = inArguments;
+    NSString *jsPath = stringArg(info[@"jsPath"]);
+    
+    if (!jsPath) {
+        return UEX_FALSE;
     }
     NSError *error = nil;
-    NSString *js = [NSString stringWithContentsOfFile:[self absPath:info[@"jsPath"]] encoding:NSUTF8StringEncoding error:&error];
-    if (error) {
-        return kUexBackgroundResultFalse;
+    NSString *js = [NSString stringWithContentsOfFile:[self absPath:jsPath] encoding:NSUTF8StringEncoding error:&error];
+    if (!js || error) {
+        return UEX_FALSE;
     }
-    if (info[@"jsResourcePaths"] && [info[@"jsResourcePaths"] isKindOfClass:[NSArray class]]) {
-        [[[info[@"jsResourcePaths"]
-          rac_sequence]filter:^BOOL(id value) {
-            return [value isKindOfClass:[NSString class]];
-        }]all:^BOOL(NSString *path) {
-            NSError *e = nil;
-            NSString *jsRes = [NSString stringWithContentsOfFile:[self absPath:path] encoding:NSUTF8StringEncoding error:&e];
-            if (!e && jsRes) {
-                [self.manager.jsResources addObject:jsRes];
+    NSArray *resPaths = arrayArg(info[@"jsResourcePaths"]);
+    if (resPaths) {
+        [resPaths enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSString *aResPath = stringArg(obj);
+            if (aResPath) {
+                NSError *e = nil;
+                NSString *jsRes = [NSString stringWithContentsOfFile:[self absPath:aResPath] encoding:NSUTF8StringEncoding error:&e];
+                if (!e && jsRes) {
+                    [self.manager.jsResources addObject:jsRes];
+                }
             }
-            return YES;
         }];
     }
 
     
     BOOL isSuccess = [_manager startWithJSScript:js];
     if (!isSuccess) {
-        return kUexBackgroundResultFalse;
+        return UEX_FALSE;
     }
-    return kUexBackgroundResultTrue;
+    return UEX_TRUE;
 }
 
 - (NSNumber *)stop:(NSMutableArray *)inArguments{
     BOOL isSuccess = [self.manager stop];
     if (!isSuccess) {
-        return kUexBackgroundResultFalse;
+        return UEX_FALSE;
     }
-     return kUexBackgroundResultTrue;
+     return UEX_TRUE;
 }
 
 - (NSNumber *)addTimer:(NSMutableArray *)inArguments{
-    if([inArguments count] < 1){
-        return kUexBackgroundResultFalse;
+
+    ACArgsUnpack(NSDictionary *info) = inArguments;
+    NSString *identifier = stringArg(info[@"id"]);
+    NSString *cbName = stringArg(info[@"callbackName"]);
+    NSNumber *intervalNum = numberArg(info[@"timeInterval"]);
+    NSNumber *timesNum = numberArg(info[@"repeatTimes"]);
+    if (!identifier || !cbName || !intervalNum || !timesNum) {
+         return UEX_FALSE;
     }
-    id info = [inArguments[0] JSONValue];
-    if(!info || ![info isKindOfClass:[NSDictionary class]]){
-        return kUexBackgroundResultFalse;
-    }
-    BOOL paramsTestPassed = [@[@"id",@"callbackName",@"repeatTimes",@"timeInterval"].rac_sequence all:^BOOL(id key) {
-        return [info objectForKey:key];
-    }];
-    if (!paramsTestPassed) {
-        return kUexBackgroundResultFalse;
-    }
-    BOOL isAdded = [self.manager addTimerWithIdentifier:info[@"id"]
-                                           callbackName:info[@"callbackName"]
-                                           timeInterval:[info[@"timeInterval"] doubleValue]/1000
-                                            repeatTimes:[info[@"repeatTimes"] integerValue]];
+    
+    BOOL isAdded = [self.manager addTimerWithIdentifier:identifier
+                                           callbackName:cbName
+                                           timeInterval:[intervalNum doubleValue]/1000
+                                            repeatTimes:[timesNum integerValue]];
     if (!isAdded) {
-        return kUexBackgroundResultFalse;
+        return UEX_FALSE;
     }
-    return kUexBackgroundResultTrue;
+    return UEX_TRUE;
 }
 
 - (void)cancelTimer:(NSMutableArray *)inArguments{
-    if([inArguments count] < 1){
+    ACArgsUnpack(NSArray *timerNames) = inArguments;
+    if (!timerNames || timerNames.count == 0) {
         [self.manager cancelAllTimers];
         return;
     }
-    id info = [inArguments[0] JSONValue];
-    if(!info || ![info isKindOfClass:[NSArray class]]){
-        [self.manager cancelAllTimers];
-        return;
-    }
-    [[[info rac_sequence]
-      filter:^BOOL(id value) {
-        return [value isKindOfClass:[NSString class]];
-    }]
-     all:^BOOL(NSString *identifier) {
-        [self.manager cancelTimerWithIdentifier:identifier];
-        return YES;
+    [timerNames enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString *identifier = stringArg(obj);
+        if (identifier) {
+            [self.manager cancelTimerWithIdentifier:identifier];
+        }
     }];
 }
 
 
 
-#pragma mark - JSON Callback
 
-- (void)callbackJSONWithFunction:(NSString *)functionName object:(id)object{
-    [EUtility uexPlugin:@"uexBackground"
-         callbackByName:functionName
-             withObject:object
-                andType:uexPluginCallbackWithJsonString
-               inTarget:self.meBrwView];
-    
-}
 
 
 @end

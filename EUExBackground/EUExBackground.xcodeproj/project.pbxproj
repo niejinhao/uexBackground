@@ -13,6 +13,7 @@
 		42088F9C1C8E6649002D6DFD /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42088F9B1C8E6649002D6DFD /* ReactiveCocoa.framework */; };
 		42088FA11C8E6A82002D6DFD /* uexBackgroundTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 42088FA01C8E6A82002D6DFD /* uexBackgroundTimer.m */; };
 		421A4B071C90242F00DC17D2 /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42088F9B1C8E6649002D6DFD /* ReactiveCocoa.framework */; };
+		42F20AC11D1A223600DA6EEA /* AppCanKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F20AC01D1A223600DA6EEA /* AppCanKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,7 +30,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		08935C42A39549E994BAC2AE /* EUExBaseDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBaseDefine.h; sourceTree = "<group>"; };
 		26A50868C4432E44C3EAD3D7 /* MD5Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Digest.h; sourceTree = "<group>"; };
 		42088F8C1C8D81A4002D6DFD /* EUExBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBackground.h; sourceTree = "<group>"; };
 		42088F8D1C8D81A4002D6DFD /* EUExBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EUExBackground.m; sourceTree = "<group>"; };
@@ -44,17 +44,15 @@
 		42088F9F1C8E6A82002D6DFD /* uexBackgroundTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexBackgroundTimer.h; sourceTree = "<group>"; };
 		42088FA01C8E6A82002D6DFD /* uexBackgroundTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexBackgroundTimer.m; sourceTree = "<group>"; };
 		424AD04D1C25285300EEC1F8 /* libuexBackground.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexBackground.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		45774702446D99EB888A66B1 /* EUExBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBase.h; sourceTree = "<group>"; };
+		42F20AC01D1A223600DA6EEA /* AppCanKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCanKit.framework; sourceTree = "<group>"; };
 		4D443A8CD8EA694B6BABAB57 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		6D38A91822332CC1630B0897 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
 		7C804C1A38DA672191643192 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		7E09DCEA6FFCCC1DC3608455 /* EUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUtility.h; sourceTree = "<group>"; };
 		891F5A39319E3085DDCB62DA /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
 		A3C2555488C28F9A16C69504 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
 		AD4CF24C50F6869089B23B74 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
 		AE10CDE2CDBC467030D158E2 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
 		F1D6E951C29FD64B76471CE3 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		F68E36DFBA7E004FB3306E04 /* EUExBase+Bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EUExBase+Bundle.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42F20AC11D1A223600DA6EEA /* AppCanKit.framework in Frameworks */,
 				42088F9C1C8E6649002D6DFD /* ReactiveCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +71,7 @@
 		13E3A0FB72A03F4AD14B7169 /* EUExBackground */ = {
 			isa = PBXGroup;
 			children = (
+				42F20AC01D1A223600DA6EEA /* AppCanKit.framework */,
 				2FC4C2549EB60B97FC2C144A /* engineHeader */,
 				D9AB0573CB5A43058EC70AB3 /* sourceCode */,
 				42088F8C1C8D81A4002D6DFD /* EUExBackground.h */,
@@ -85,10 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				42088F9A1C8D84CF002D6DFD /* EBrowserView.h */,
-				7E09DCEA6FFCCC1DC3608455 /* EUtility.h */,
-				F68E36DFBA7E004FB3306E04 /* EUExBase+Bundle.h */,
-				45774702446D99EB888A66B1 /* EUExBase.h */,
-				08935C42A39549E994BAC2AE /* EUExBaseDefine.h */,
 				42088F931C8D83DB002D6DFD /* ACEJSCHandler.h */,
 			);
 			path = engineHeader;
@@ -294,6 +290,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EUExBackground/sourceCode",
+					"$(PROJECT_DIR)/EUExBackground",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/EUExBackground/PrefixHeader.pch;
@@ -310,6 +307,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EUExBackground/sourceCode",
+					"$(PROJECT_DIR)/EUExBackground",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/EUExBackground/PrefixHeader.pch;
