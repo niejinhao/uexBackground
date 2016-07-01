@@ -33,7 +33,7 @@
 
 
 
-- (void)evaluateJavaScript:(NSString *)jsStr;
+- (void)evaluateScript:(NSString *)jsScript;
 
 
 - (BOOL)startWithJSScript:(NSString *)js;

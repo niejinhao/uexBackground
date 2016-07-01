@@ -23,16 +23,14 @@
 
 #import "uexBackgroundManager.h"
 #import "ACEJSCHandler.h"
-#import "uexBackgroundFakeEBrowserView.h"
 #import "uexBackgroundTimer.h"
+#import <AppCanKit/ACJSValueSupport.h>
 
 
 
-
-@interface uexBackgroundManager()
+@interface uexBackgroundManager()<AppCanWebViewEngineObject>
 @property (nonatomic,strong)JSContext *context;
 @property (nonatomic,strong)ACEJSCHandler *JSCHandler;
-@property (nonatomic,strong)uexBackgroundFakeEBrowserView *EBrowserView;
 @property (nonatomic,strong)RACSubject *resetSignal;
 @property (nonatomic,strong)NSMutableArray<uexBackgroundTimer *> *timers;
 @property (nonatomic,strong)dispatch_semaphore_t arrayLock;
@@ -63,7 +61,6 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
 {
     self = [super init];
     if (self) {
-        _EBrowserView = [[uexBackgroundFakeEBrowserView alloc]initWithManager:self];
         _timers = [NSMutableArray array];
         _arrayLock = dispatch_semaphore_create(1);
         _jsResources = [NSMutableArray array];
@@ -75,12 +72,13 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
     return self;
 }
 - (void)reset{
-    if(self.context){
-        self.context = nil;
-    }
+
     if (self.JSCHandler) {
         [self.JSCHandler clean];
         self.JSCHandler = nil;
+    }
+    if(self.context){
+        self.context = nil;
     }
     if (self.taskDisposable) {
         [self.taskDisposable dispose];
@@ -106,7 +104,8 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
 
 - (ACEJSCHandler *)JSCHandler{
     if (!_JSCHandler) {
-        _JSCHandler = [[ACEJSCHandler alloc]initWithEBrowserView:self.EBrowserView];
+        _JSCHandler = [[ACEJSCHandler alloc]initWithWebViewEngine:self];
+        [_JSCHandler initializeWithJSContext:self.context];
     }
     return _JSCHandler;
 }
@@ -130,11 +129,11 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
     self.isRunning = YES;
     [self.JSCHandler initializeWithJSContext:self.context];
     for (int i = 0; i < self.jsResources.count; i++) {
-        [self evaluateJavaScript:self.jsResources[i]];
+        [self evaluateScript:self.jsResources[i]];
     }
-    [self evaluateJavaScript:js];
+    [self evaluateScript:js];
     NSString *onLoadJS = [NSString stringWithFormat:@"if(%@.%@){%@.%@();}",kUexBackgroundCallbackPluginName,kUexBackgroundOnLoadName,kUexBackgroundCallbackPluginName,kUexBackgroundOnLoadName];
-    [self evaluateJavaScript:onLoadJS];
+    [self evaluateScript:onLoadJS];
 
     
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIApplicationDidBecomeActiveNotification object:nil]
@@ -177,12 +176,7 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
     return YES;
 }
 
-- (void)evaluateJavaScript:(NSString *)jsStr{
-    dispatch_async(self.jsQueue, ^{
-        [self.context evaluateScript:jsStr];
-    });
 
-}
 
 
 - (BOOL)addTimerWithIdentifier:(NSString *)identifier
@@ -235,7 +229,7 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
     timer.disposable = [timerSignal subscribeNext:^(NSNumber *count) {
         @strongify(self,timer);
         NSString *jsStr = [NSString stringWithFormat:@"if(%@.%@){%@.%@(%@);}",kUexBackgroundCallbackPluginName,timer.callbackName,kUexBackgroundCallbackPluginName,timer.callbackName,count];
-        [self evaluateJavaScript:jsStr];
+        [self evaluateScript:jsStr];
     }];
     
     
@@ -301,5 +295,48 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
 - (void)unlock{
     dispatch_semaphore_signal(self.arrayLock);
 }
+
+
+#pragma mark - AppCanEngineObject Protocol
+
+- (__kindof UIView *)webView{
+    return nil;
+}
+
+- (__kindof UIScrollView *)webScrollView{
+    return nil;
+}
+
+- (id<AppCanWidgetObject>)widget{
+    return AppCanMainWidget();
+}
+
+- (__kindof UIViewController *)viewController{
+    return nil;
+}
+
+- (NSURL *)currentURL{
+    return nil;
+}
+
+- (void)evaluateScript:(NSString *)jsScript{
+    dispatch_async(self.jsQueue, ^{
+        [self.context evaluateScript:jsScript];
+    });
+    
+}
+
+- (void)callbackWithFunctionKeyPath:(NSString *)JSKeyPath arguments:(NSArray *)arguments completion:(void (^)(JSValue * ))completion{
+    
+    JSValue *func = [self.context ac_JSValueForKeyPath:JSKeyPath];
+    [func ac_callWithArguments:arguments completionHandler:completion];
+}
+
+- (void)callbackWithFunctionKeyPath:(NSString *)JSKeyPath arguments:(NSArray *)arguments{
+    [self callbackWithFunctionKeyPath:JSKeyPath arguments:arguments completion:nil];
+}
+
+
+
 
 @end
