@@ -26,8 +26,6 @@
 #import "uexBackgroundManager.h"
 
 
-#define UEX_FALSE @(NO)
-#define UEX_TRUE @(YES)
 
 @interface EUExBackground()
 @property (nonatomic,weak)uexBackgroundManager *manager;
@@ -72,17 +70,16 @@
 
 
 
-- (NSNumber *)start:(NSMutableArray *)inArguments{
+- (UEX_BOOL)start:(NSMutableArray *)inArguments{
 
     ACArgsUnpack(NSDictionary *info) = inArguments;
     NSString *jsPath = stringArg(info[@"jsPath"]);
-    
-    if (!jsPath) {
-        return UEX_FALSE;
-    }
+    UEX_PARAM_GUARD_NOT_NIL(jsPath,UEX_FALSE);
+
     NSError *error = nil;
     NSString *js = [NSString stringWithContentsOfFile:[self absPath:jsPath] encoding:NSUTF8StringEncoding error:&error];
     if (!js || error) {
+        ACLogDebug(@"js file invalid!");
         return UEX_FALSE;
     }
     NSArray *resPaths = arrayArg(info[@"jsResourcePaths"]);
@@ -107,7 +104,7 @@
     return UEX_TRUE;
 }
 
-- (NSNumber *)stop:(NSMutableArray *)inArguments{
+- (UEX_BOOL)stop:(NSMutableArray *)inArguments{
     BOOL isSuccess = [self.manager stop];
     if (!isSuccess) {
         return UEX_FALSE;
@@ -115,21 +112,22 @@
      return UEX_TRUE;
 }
 
-- (NSNumber *)addTimer:(NSMutableArray *)inArguments{
+- (UEX_BOOL)addTimer:(NSMutableArray *)inArguments{
 
     ACArgsUnpack(NSDictionary *info) = inArguments;
     NSString *identifier = stringArg(info[@"id"]);
-    NSString *cbName = stringArg(info[@"callbackName"]);
-    NSNumber *intervalNum = numberArg(info[@"timeInterval"]);
-    NSNumber *timesNum = numberArg(info[@"repeatTimes"]);
-    if (!identifier || !cbName || !intervalNum || !timesNum) {
-         return UEX_FALSE;
-    }
-    
+    NSString *callbackName = stringArg(info[@"callbackName"]);
+    NSNumber *timeInterval = numberArg(info[@"timeInterval"]);
+    NSNumber *repeatTimes = numberArg(info[@"repeatTimes"]);
+    UEX_PARAM_GUARD_NOT_NIL(identifier,UEX_FALSE);
+    UEX_PARAM_GUARD_NOT_NIL(callbackName,UEX_FALSE);
+    UEX_PARAM_GUARD_NOT_NIL(timeInterval,UEX_FALSE);
+    UEX_PARAM_GUARD_NOT_NIL(repeatTimes,UEX_FALSE);
+
     BOOL isAdded = [self.manager addTimerWithIdentifier:identifier
-                                           callbackName:cbName
-                                           timeInterval:[intervalNum doubleValue]/1000
-                                            repeatTimes:[timesNum integerValue]];
+                                           callbackName:callbackName
+                                           timeInterval:[timeInterval doubleValue]/1000
+                                            repeatTimes:[repeatTimes integerValue]];
     if (!isAdded) {
         return UEX_FALSE;
     }
