@@ -1,10 +1,10 @@
 /**
  *
- *	@file   	: uexBackgroundFakeEBrowserView.m  in EUExBackground Project .
+ *	@file   	: AppCanGlobalObjectGetter.h  in AppCanKit
  *
- *	@author 	: CeriNo.
+ *	@author 	: CeriNo 
  * 
- *	@date   	: Created on 16/3/7.
+ *	@date   	: Created on 16/5/31.
  *
  *	@copyright 	: 2016 The AppCan Open Source Project.
  *
@@ -20,29 +20,12 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+ 
+#import <Foundation/Foundation.h>
 
-#import "uexBackgroundFakeEBrowserView.h"
-#import "uexBackgroundManager.h"
-@interface uexBackgroundFakeEBrowserView()
-@property (nonatomic,weak)uexBackgroundManager *manager;
-@end
-@implementation uexBackgroundFakeEBrowserView
+@protocol AppCanGlobalObjectGetter <NSObject>
 
-
-- (instancetype)initWithManager:(uexBackgroundManager *)manager
-{
-    self = [super init];
-    if (self) {
-        _manager = manager;
-    }
-    return self;
-}
-
-
-- (NSString *)stringByEvaluatingJavaScriptFromString:(NSString *)script{
-    [self.manager evaluateJavaScript:script];
-    return @"";
-}
-
+- (id<AppCanWebViewEngineObject>)getAppCanRootWebViewEngine;
+- (id<AppCanWidgetObject>)getAppCanMainWidget;
 
 @end

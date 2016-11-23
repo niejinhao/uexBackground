@@ -22,7 +22,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "EUExBase.h"
+
 @interface EUExBackground : EUExBase
 
 @end

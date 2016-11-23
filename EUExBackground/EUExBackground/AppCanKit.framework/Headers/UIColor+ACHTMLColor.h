@@ -1,10 +1,10 @@
 /**
  *
- *	@file   	: uexBackgroundManager.h  in EUExBackground Project .
+ *	@file   	: UIColor+ACHTMLColor.h  in AppCanKit
  *
- *	@author 	: CeriNo.
+ *	@author 	: CeriNo 
  * 
- *	@date   	: Created on 16/3/7.
+ *	@date   	: Created on 16/5/31.
  *
  *	@copyright 	: 2016 The AppCan Open Source Project.
  *
@@ -20,32 +20,22 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
+ 
 #import <Foundation/Foundation.h>
-#import <JavaScriptCore/JavaScriptCore.h>
-@interface uexBackgroundManager : NSObject
-
-
-@property (nonatomic,assign)BOOL isRunning;
-@property (nonatomic,strong)NSMutableArray<NSString *> *jsResources;
-
-+ (instancetype)sharedManager;
+#import <UIKit/UIKit.h>
 
 
 
-- (void)evaluateScript:(NSString *)jsScript;
 
+@interface UIColor (ACHTMLColor)
 
-- (BOOL)startWithJSScript:(NSString *)js;
-- (BOOL)stop;
-
-- (BOOL)addTimerWithIdentifier:(NSString *)identifier
-                  callbackName:(NSString *)callbackName
-                  timeInterval:(NSTimeInterval)timeInterval
-                   repeatTimes:(NSInteger)repeatTimes;
-
-
-- (BOOL)cancelTimerWithIdentifier:(NSString *)identifier;
-- (void)cancelAllTimers;
+/**
+ *  尝试解析一个HTMLColor字符串,得到UIColor
+ *
+ *  @param htmlColorStr <#htmlColorStr description#>
+ *
+ *  @return 解析得到的UIColor,解析失败时会返回nil
+ */
++ (nullable instancetype)ac_ColorWithHTMLColorString:(nonnull NSString *)htmlColorStr;
 
 @end
