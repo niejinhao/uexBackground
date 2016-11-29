@@ -1,10 +1,10 @@
 /**
  *
- *	@file   	: ACJSON.h  in AppCanKit
+ *	@file   	: ACGCDThrottle.h  in AppCanKit
  *
- *	@author 	: CeriNo 
+ *	@author 	: CeriNo
  * 
- *	@date   	: Created on 16/5/25.
+ *	@date   	: 2016/11/22
  *
  *	@copyright 	: 2016 The AppCan Open Source Project.
  *
@@ -20,26 +20,12 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
- 
+
+
 #import <Foundation/Foundation.h>
-
-@interface NSString (ACJSON)
-
-/**
- *  尝试将一个JSON字符串反序列化为对象
- *
- *  @return 反序列化后的对象,解析失败时返回nil
- */
-- (id)ac_JSONValue;
-
-@end
+#import <AppCanKit/ACMetaMacros.h>
 
 
-@interface NSObject (ACJSON)
 
-/**
- *  尝试将一个对象(NSString,NSDictionary,NSArray)序列化为JSON字符串
- *  @return 序列化后的JSON字符串,序列化失败时返回nil;
- */
-- (NSString *)ac_JSONFragment;
-@end
+
+APPCAN_EXPORT void ac_dispatch_throttle(NSTimeInterval threshold, dispatch_queue_t queue, dispatch_block_t block);

@@ -114,24 +114,22 @@
 
 - (UEX_BOOL)addTimer:(NSMutableArray *)inArguments{
 
-    ACArgsUnpack(NSDictionary *info) = inArguments;
+    ACArgsUnpack(NSDictionary *info,ACJSFunctionRef *cb) = inArguments;
     NSString *identifier = stringArg(info[@"id"]);
     NSString *callbackName = stringArg(info[@"callbackName"]);
     NSNumber *timeInterval = numberArg(info[@"timeInterval"]);
     NSNumber *repeatTimes = numberArg(info[@"repeatTimes"]);
     UEX_PARAM_GUARD_NOT_NIL(identifier,UEX_FALSE);
-    UEX_PARAM_GUARD_NOT_NIL(callbackName,UEX_FALSE);
     UEX_PARAM_GUARD_NOT_NIL(timeInterval,UEX_FALSE);
     UEX_PARAM_GUARD_NOT_NIL(repeatTimes,UEX_FALSE);
 
     BOOL isAdded = [self.manager addTimerWithIdentifier:identifier
                                            callbackName:callbackName
-                                           timeInterval:[timeInterval doubleValue]/1000
-                                            repeatTimes:[repeatTimes integerValue]];
-    if (!isAdded) {
-        return UEX_FALSE;
-    }
-    return UEX_TRUE;
+                                       callbackFunction:cb
+                                           timeInterval:timeInterval.doubleValue/1000
+                                            repeatTimes:repeatTimes.integerValue];
+    return isAdded ? UEX_TRUE : UEX_FALSE;
+
 }
 
 - (void)cancelTimer:(NSMutableArray *)inArguments{

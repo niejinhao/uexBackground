@@ -12,7 +12,7 @@
 		42088F9C1C8E6649002D6DFD /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42088F9B1C8E6649002D6DFD /* ReactiveCocoa.framework */; };
 		42088FA11C8E6A82002D6DFD /* uexBackgroundTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 42088FA01C8E6A82002D6DFD /* uexBackgroundTimer.m */; };
 		421A4B071C90242F00DC17D2 /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42088F9B1C8E6649002D6DFD /* ReactiveCocoa.framework */; };
-		42858C841D260F6D00EECA2B /* AppCanKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42858C831D260F6D00EECA2B /* AppCanKit.framework */; };
+		4245ECA01DED5D4000C07B2D /* AppCanKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4245EC9F1DED5D4000C07B2D /* AppCanKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,9 +38,9 @@
 		42088F9B1C8E6649002D6DFD /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveCocoa.framework; sourceTree = "<group>"; };
 		42088F9F1C8E6A82002D6DFD /* uexBackgroundTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexBackgroundTimer.h; sourceTree = "<group>"; };
 		42088FA01C8E6A82002D6DFD /* uexBackgroundTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexBackgroundTimer.m; sourceTree = "<group>"; };
+		4245EC9F1DED5D4000C07B2D /* AppCanKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCanKit.framework; sourceTree = "<group>"; };
 		424AD04D1C25285300EEC1F8 /* libuexBackground.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexBackground.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		425078961D25FEC7003B6ECF /* ACEJSCHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEJSCHandler.h; sourceTree = "<group>"; };
-		42858C831D260F6D00EECA2B /* AppCanKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCanKit.framework; sourceTree = "<group>"; };
 		4D443A8CD8EA694B6BABAB57 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		6D38A91822332CC1630B0897 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
 		7C804C1A38DA672191643192 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42858C841D260F6D00EECA2B /* AppCanKit.framework in Frameworks */,
+				4245ECA01DED5D4000C07B2D /* AppCanKit.framework in Frameworks */,
 				42088F9C1C8E6649002D6DFD /* ReactiveCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,7 +67,6 @@
 		13E3A0FB72A03F4AD14B7169 /* EUExBackground */ = {
 			isa = PBXGroup;
 			children = (
-				42858C831D260F6D00EECA2B /* AppCanKit.framework */,
 				2FC4C2549EB60B97FC2C144A /* engineHeader */,
 				D9AB0573CB5A43058EC70AB3 /* sourceCode */,
 				42088F8C1C8D81A4002D6DFD /* EUExBackground.h */,
@@ -120,6 +119,7 @@
 		D9AB0573CB5A43058EC70AB3 /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
+				4245EC9F1DED5D4000C07B2D /* AppCanKit.framework */,
 				42088F9B1C8E6649002D6DFD /* ReactiveCocoa.framework */,
 				C50158576E4BC45639087BA6 /* JSON */,
 				42088F901C8D8330002D6DFD /* uexBackgroundManager.h */,

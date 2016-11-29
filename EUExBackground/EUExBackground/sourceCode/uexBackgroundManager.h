@@ -23,6 +23,9 @@
 
 #import <Foundation/Foundation.h>
 #import <JavaScriptCore/JavaScriptCore.h>
+
+NS_ASSUME_NONNULL_BEGIN;
+
 @interface uexBackgroundManager : NSObject
 
 
@@ -40,7 +43,8 @@
 - (BOOL)stop;
 
 - (BOOL)addTimerWithIdentifier:(NSString *)identifier
-                  callbackName:(NSString *)callbackName
+                  callbackName:(nullable NSString *)callbackName
+              callbackFunction:(nullable ACJSFunctionRef *)callbackFunction
                   timeInterval:(NSTimeInterval)timeInterval
                    repeatTimes:(NSInteger)repeatTimes;
 
@@ -49,3 +53,5 @@
 - (void)cancelAllTimers;
 
 @end
+
+NS_ASSUME_NONNULL_END;

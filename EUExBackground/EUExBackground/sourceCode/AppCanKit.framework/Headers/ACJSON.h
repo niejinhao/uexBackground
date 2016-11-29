@@ -1,10 +1,10 @@
 /**
  *
- *	@file   	: uexBackgroundTimer.m  in EUExBackground Project .
+ *	@file   	: ACJSON.h  in AppCanKit
  *
- *	@author 	: CeriNo.
+ *	@author 	: CeriNo 
  * 
- *	@date   	: Created on 16/3/8.
+ *	@date   	: Created on 16/5/25.
  *
  *	@copyright 	: 2016 The AppCan Open Source Project.
  *
@@ -20,30 +20,26 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+ 
+#import <Foundation/Foundation.h>
 
-#import "uexBackgroundTimer.h"
-#import "uexBackgroundManager.h"
-@interface uexBackgroundTimer()
+@interface NSString (ACJSON)
 
-
-
+/**
+ *  尝试将一个JSON字符串反序列化为对象
+ *
+ *  @return 反序列化后的对象,解析失败时返回nil
+ */
+- (nullable id)ac_JSONValue;
 
 @end
 
-@implementation uexBackgroundTimer
 
+@interface NSObject (ACJSON)
 
-
-
-- (RACSignal *)timerSignal{
-    RACSignal *signal = [[RACSignal return:nil] concat:[RACSignal interval:self.timeInterval onScheduler:[RACScheduler schedulerWithPriority:RACSchedulerPriorityBackground]]];
-    if (self.repeatTimes > 0) {
-        signal = [signal take:self.repeatTimes];
-    }
-    
-    return signal;
-}
-
-
-
+/**
+ *  尝试将一个对象(NSString,NSDictionary,NSArray)序列化为JSON字符串
+ *  @return 序列化后的JSON字符串,序列化失败时返回nil;
+ */
+- (nullable NSString *)ac_JSONFragment;
 @end

@@ -22,20 +22,21 @@
  */
 
 #import <Foundation/Foundation.h>
+
+NS_ASSUME_NONNULL_BEGIN;
+
 @class uexBackgroundManager;
 @interface uexBackgroundTimer : NSObject
 @property (nonatomic,strong)NSString *identifier;
-@property (nonatomic,strong)NSString *callbackName;
+@property (nonatomic,strong,nullable)NSString *callbackName;
 @property (nonatomic,assign)NSInteger repeatTimes;
 @property (nonatomic,assign)NSTimeInterval timeInterval;
-
+@property (nonatomic,strong,nullable)ACJSFunctionRef *callbackFunction;
 @property (nonatomic,strong)RACDisposable *disposable;
 
 
-- (instancetype)initWithIdentifier:(NSString *)identifier
-                      callbackName:(NSString *)callbackName
-                      timeInterval:(NSTimeInterval)timeInterval
-                       repeatTimes:(NSInteger)repeatTimes;
+
 
 - (RACSignal *)timerSignal;
 @end
+NS_ASSUME_NONNULL_END;

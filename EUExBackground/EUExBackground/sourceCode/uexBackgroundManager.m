@@ -181,31 +181,38 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
 
 - (BOOL)addTimerWithIdentifier:(NSString *)identifier
                   callbackName:(NSString *)callbackName
+              callbackFunction:(ACJSFunctionRef *)callbackFunction
                   timeInterval:(NSTimeInterval)timeInterval
                    repeatTimes:(NSInteger)repeatTimes{
-    [self lock];
-    if (![self isIdentifierValid:identifier]) {
-        [self unlock];
-        return NO;
-    }
-    if (![self isCallbackNameValid:identifier]) {
-        [self unlock];
-        return NO;
-    }
-    [self unlock];
+    
     if (!self.isRunning) {
         return NO;
     }
     if (timeInterval <= 0) {
         return NO;
     }
-    __block uexBackgroundTimer *timer = [[uexBackgroundTimer alloc]initWithIdentifier:identifier callbackName:callbackName timeInterval:timeInterval repeatTimes:repeatTimes];
-    if (!timer) {
+    
+    
+    [self lock];
+    @onExit{
+        [self unlock];
+    };
+    if (![self isIdentifierValid:identifier]) {
         return NO;
     }
-    [self lock];
+    if (![self isCallbackNameValid:callbackName] && !callbackFunction) {
+        return NO;
+    }
+    
+    
+    __block uexBackgroundTimer *timer = [[uexBackgroundTimer alloc] init];
+    timer.identifier = identifier;
+    timer.callbackName = callbackName;
+    timer.callbackFunction = callbackFunction;
+    timer.timeInterval = timeInterval;
+    timer.repeatTimes = repeatTimes > 0 ? repeatTimes : 0;
     [self.timers addObject:timer];
-    [self unlock];
+
     @weakify(self,timer);
     RACSignal *timerSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         @strongify(self,timer);
@@ -228,8 +235,13 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
     
     timer.disposable = [timerSignal subscribeNext:^(NSNumber *count) {
         @strongify(self,timer);
-        NSString *jsStr = [NSString stringWithFormat:@"if(%@.%@){%@.%@(%@);}",kUexBackgroundCallbackPluginName,timer.callbackName,kUexBackgroundCallbackPluginName,timer.callbackName,count];
-        [self evaluateScript:jsStr];
+        if (timer.callbackName && timer.callbackName.length > 0) {
+            [self callbackWithFunctionKeyPath:[NSString stringWithFormat:@"%@.%@",kUexBackgroundCallbackPluginName,timer.callbackName] arguments:ACArgsPack(count)];
+        }
+        if (timer.callbackFunction) {
+            [timer.callbackFunction executeWithArguments:ACArgsPack(count)];
+        }
+
     }];
     
     
@@ -271,9 +283,14 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
     if (!identifier ||![identifier isKindOfClass:[NSString class]] || identifier.length == 0) {
         return NO;
     }
-    return [self.timers.rac_sequence all:^BOOL(uexBackgroundTimer *timer) {
-        return ![identifier isEqual:timer.identifier];
-    }];
+    
+    for (uexBackgroundTimer *timer in self.timers) {
+        if ([timer.identifier isEqual:identifier]) {
+            return NO;
+        }
+    }
+    return YES;
+
 }
 
 - (BOOL)isCallbackNameValid:(NSString *)callbackName{
@@ -283,9 +300,12 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
     if([callbackName isEqual:@"onLoad"]){
         return NO;
     }
-    return [self.timers.rac_sequence all:^BOOL(uexBackgroundTimer *timer) {
-        return ![callbackName isEqual:timer.callbackName];
-    }];
+    for (uexBackgroundTimer *timer in self.timers) {
+        if ([timer.callbackName isEqual:callbackName]) {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 - (void)lock{

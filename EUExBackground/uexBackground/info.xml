@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <uexplugins>
     <plugin
-        uexName="uexBackground" version="4.0.0" build="0">
-        <info>0:uexBackground for iOS</info>
+        uexName="uexBackground" version="4.0.1" build="1">
+        <info>1:addTimer支持传入function</info>
+        <build>0:uexBackground for iOS</build>
     </plugin>
 </uexplugins>
