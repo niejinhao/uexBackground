@@ -4,13 +4,59 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Frameworks/ReactiveObjC.framework/Info.plist</key>
+		<data>
+		+VR4cUNS03LHQwkCrcrwfgz2NRg=
+		</data>
+		<key>Frameworks/ReactiveObjC.framework/ReactiveObjC</key>
+		<data>
+		GsZ921nY+aa3xsO7OZTtvZQXmhE=
+		</data>
+		<key>Frameworks/ReactiveObjC.framework/_CodeSignature/CodeResources</key>
+		<data>
+		qdMNe1QQfuaOpAE0N82FChKWiS8=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		yDnqyKvBC4COwoQINIirBimYuNo=
+		ETp4ggEi2iifNSSeeu/F07vNFIo=
 		</data>
 	</dict>
 	<key>files2</key>
-	<dict/>
+	<dict>
+		<key>Frameworks/ReactiveObjC.framework/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+VR4cUNS03LHQwkCrcrwfgz2NRg=
+			</data>
+			<key>hash2</key>
+			<data>
+			t9Xquv+16qrWtPRxfZE1rpeBW4mC1btWz8X5KKEGJK4=
+			</data>
+		</dict>
+		<key>Frameworks/ReactiveObjC.framework/ReactiveObjC</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			GsZ921nY+aa3xsO7OZTtvZQXmhE=
+			</data>
+			<key>hash2</key>
+			<data>
+			QQT3E3D1Me7h3NFGgFyv3hM81wbPQqtSko+V8PBZDuU=
+			</data>
+		</dict>
+		<key>Frameworks/ReactiveObjC.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qdMNe1QQfuaOpAE0N82FChKWiS8=
+			</data>
+			<key>hash2</key>
+			<data>
+			G3+uNVbEmsSdZw6w6ZsvtUVJpNV8/gLbFiENBHJBKZI=
+			</data>
+		</dict>
+	</dict>
 	<key>rules</key>
 	<dict>
 		<key>^</key>

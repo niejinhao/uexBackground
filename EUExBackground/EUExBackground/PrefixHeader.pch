@@ -14,7 +14,7 @@
 
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 #import <AppCanKit/AppCanKit.h>
 #endif
 

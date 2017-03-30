@@ -144,7 +144,6 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
     }];
     
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil]subscribeNext:^(id x) {
-        //NSLog(@"enter background");
         __block UIBackgroundTaskIdentifier bgTask;
         bgTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
             self.shouldEndBackgroundTask = NO;
@@ -156,7 +155,6 @@ NSString *kUexBackgroundOnLoadName = @"onLoad";
             @strongify(self);
             if (self.shouldEndBackgroundTask) {
                 self.shouldEndBackgroundTask = NO;
-                //NSLog(@"stop task!");
                 [[UIApplication sharedApplication] endBackgroundTask:bgTask];
             }
             self.taskDisposable = nil;

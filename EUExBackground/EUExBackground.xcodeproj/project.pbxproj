@@ -9,46 +9,48 @@
 /* Begin PBXBuildFile section */
 		42088F8E1C8D81A4002D6DFD /* EUExBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 42088F8D1C8D81A4002D6DFD /* EUExBackground.m */; };
 		42088F921C8D8330002D6DFD /* uexBackgroundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 42088F911C8D8330002D6DFD /* uexBackgroundManager.m */; };
-		42088F9C1C8E6649002D6DFD /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42088F9B1C8E6649002D6DFD /* ReactiveCocoa.framework */; };
 		42088FA11C8E6A82002D6DFD /* uexBackgroundTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 42088FA01C8E6A82002D6DFD /* uexBackgroundTimer.m */; };
-		421A4B071C90242F00DC17D2 /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42088F9B1C8E6649002D6DFD /* ReactiveCocoa.framework */; };
 		4245ECA01DED5D4000C07B2D /* AppCanKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4245EC9F1DED5D4000C07B2D /* AppCanKit.framework */; };
+		42BCEB351E8CB6A600721B9D /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42BCEB341E8CB6A600721B9D /* ReactiveObjC.framework */; };
+		42BCEB361E8CD00200721B9D /* libuexBackground.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 424AD04D1C25285300EEC1F8 /* libuexBackground.a */; };
+		42BCEB381E8CD01A00721B9D /* ReactiveObjC.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42BCEB341E8CB6A600721B9D /* ReactiveObjC.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		424AD04B1C25285300EEC1F8 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 16;
+			dstPath = $SRCROOT/uexBackground;
+			dstSubfolderSpec = 0;
 			files = (
-				421A4B071C90242F00DC17D2 /* ReactiveCocoa.framework in CopyFiles */,
+				42BCEB361E8CD00200721B9D /* libuexBackground.a in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42BCEB371E8CD00E00721B9D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = $SRCROOT/uexBackground/embed;
+			dstSubfolderSpec = 0;
+			files = (
+				42BCEB381E8CD01A00721B9D /* ReactiveObjC.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		26A50868C4432E44C3EAD3D7 /* MD5Digest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Digest.h; sourceTree = "<group>"; };
 		42088F8C1C8D81A4002D6DFD /* EUExBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EUExBackground.h; sourceTree = "<group>"; };
 		42088F8D1C8D81A4002D6DFD /* EUExBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EUExBackground.m; sourceTree = "<group>"; };
 		42088F8F1C8D8262002D6DFD /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		42088F901C8D8330002D6DFD /* uexBackgroundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexBackgroundManager.h; sourceTree = "<group>"; };
 		42088F911C8D8330002D6DFD /* uexBackgroundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexBackgroundManager.m; sourceTree = "<group>"; };
-		42088F9B1C8E6649002D6DFD /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveCocoa.framework; sourceTree = "<group>"; };
 		42088F9F1C8E6A82002D6DFD /* uexBackgroundTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uexBackgroundTimer.h; sourceTree = "<group>"; };
 		42088FA01C8E6A82002D6DFD /* uexBackgroundTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = uexBackgroundTimer.m; sourceTree = "<group>"; };
 		4245EC9F1DED5D4000C07B2D /* AppCanKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppCanKit.framework; sourceTree = "<group>"; };
 		424AD04D1C25285300EEC1F8 /* libuexBackground.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexBackground.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		425078961D25FEC7003B6ECF /* ACEJSCHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEJSCHandler.h; sourceTree = "<group>"; };
-		4D443A8CD8EA694B6BABAB57 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
-		6D38A91822332CC1630B0897 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
-		7C804C1A38DA672191643192 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		891F5A39319E3085DDCB62DA /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
-		A3C2555488C28F9A16C69504 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		AD4CF24C50F6869089B23B74 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
-		AE10CDE2CDBC467030D158E2 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
-		F1D6E951C29FD64B76471CE3 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		42BCEB341E8CB6A600721B9D /* ReactiveObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveObjC.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4245ECA01DED5D4000C07B2D /* AppCanKit.framework in Frameworks */,
-				42088F9C1C8E6649002D6DFD /* ReactiveCocoa.framework in Frameworks */,
+				42BCEB351E8CB6A600721B9D /* ReactiveObjC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,28 +102,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C50158576E4BC45639087BA6 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				F1D6E951C29FD64B76471CE3 /* JSON.h */,
-				AE10CDE2CDBC467030D158E2 /* JSONParser.h */,
-				26A50868C4432E44C3EAD3D7 /* MD5Digest.h */,
-				4D443A8CD8EA694B6BABAB57 /* NSObject+SBJSON.h */,
-				891F5A39319E3085DDCB62DA /* NSString+SBJSON.h */,
-				AD4CF24C50F6869089B23B74 /* SBJSON.h */,
-				6D38A91822332CC1630B0897 /* SBJsonBase.h */,
-				A3C2555488C28F9A16C69504 /* SBJsonParser.h */,
-				7C804C1A38DA672191643192 /* SBJsonWriter.h */,
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
 		D9AB0573CB5A43058EC70AB3 /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
+				42BCEB341E8CB6A600721B9D /* ReactiveObjC.framework */,
 				4245EC9F1DED5D4000C07B2D /* AppCanKit.framework */,
-				42088F9B1C8E6649002D6DFD /* ReactiveCocoa.framework */,
-				C50158576E4BC45639087BA6 /* JSON */,
 				42088F901C8D8330002D6DFD /* uexBackgroundManager.h */,
 				42088F911C8D8330002D6DFD /* uexBackgroundManager.m */,
 				42088F9F1C8E6A82002D6DFD /* uexBackgroundTimer.h */,
@@ -140,6 +125,7 @@
 				424AD0491C25285300EEC1F8 /* Sources */,
 				424AD04A1C25285300EEC1F8 /* Frameworks */,
 				424AD04B1C25285300EEC1F8 /* CopyFiles */,
+				42BCEB371E8CD00E00721B9D /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -278,7 +264,6 @@
 		424AD0571C25285300EEC1F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/uexBackground";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EUExBackground/sourceCode",
@@ -296,7 +281,6 @@
 		424AD0581C25285300EEC1F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/uexBackground";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EUExBackground/sourceCode",
