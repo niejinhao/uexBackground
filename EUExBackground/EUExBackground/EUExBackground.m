@@ -23,7 +23,7 @@
 
 #import "EUExBackground.h"
 #import "uexBackgroundManager.h"
-
+#import "FileEncrypt.h"
 
 
 @interface EUExBackground()
@@ -76,7 +76,23 @@
     UEX_PARAM_GUARD_NOT_NIL(jsPath,UEX_FALSE);
 
     NSError *error = nil;
-    NSString *js = [NSString stringWithContentsOfFile:[self absPath:jsPath] encoding:NSUTF8StringEncoding error:&error];
+    NSString *js;
+    
+    NSData *configData = [NSData dataWithContentsOfFile:[self absPath:jsPath]];
+    BOOL isEncrypt = [FileEncrypt isDataEncrypted:configData];
+
+    if (isEncrypt)
+    {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@", [self absPath:jsPath]]];
+        
+        FileEncrypt *encryptObj = [[FileEncrypt alloc]init];
+        js = [encryptObj decryptWithPath:url appendData:nil];
+    }
+    else
+    {
+        js= [NSString stringWithContentsOfFile:[self absPath:jsPath] encoding:NSUTF8StringEncoding error:&error];
+    }
+    
     if (!js || error) {
         ACLogDebug(@"js file invalid!");
         return UEX_FALSE;

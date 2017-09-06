@@ -51,6 +51,7 @@
 		424AD04D1C25285300EEC1F8 /* libuexBackground.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libuexBackground.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		425078961D25FEC7003B6ECF /* ACEJSCHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEJSCHandler.h; sourceTree = "<group>"; };
 		42BCEB341E8CB6A600721B9D /* ReactiveObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveObjC.framework; sourceTree = "<group>"; };
+		CD0EA5271F6006CE00C4FAA1 /* FileEncrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileEncrypt.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +82,7 @@
 		2FC4C2549EB60B97FC2C144A /* engineHeader */ = {
 			isa = PBXGroup;
 			children = (
+				CD0EA5271F6006CE00C4FAA1 /* FileEncrypt.h */,
 				425078961D25FEC7003B6ECF /* ACEJSCHandler.h */,
 			);
 			path = engineHeader;
@@ -271,6 +273,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/EUExBackground/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/EUExBackground/engineHeader\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = uexBackground;
@@ -288,6 +291,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = $SRCROOT/EUExBackground/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/EUExBackground/engineHeader\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = uexBackground;
