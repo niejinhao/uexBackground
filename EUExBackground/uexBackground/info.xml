@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <uexplugins>
     <plugin
-        uexName="uexBackground" version="4.0.2" build="2">
-        <info>2: 更新RAC依赖库</info>
+        uexName="uexBackground" version="4.0.3" build="3">
+        <info>3: 兼容网页加密调用问题</info>
+        <build>2: 更新RAC依赖库</build>
         <build>1: addTimer支持传入function</build>
         <build>0: uexBackground for iOS</build>
     </plugin>
